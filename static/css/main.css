@@ -1,0 +1,33 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(/fonts/a.ttf); }
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333333; }
+
+.da {
+  border: 1px solid #CCC;
+  padding: 5px;
+  background-color: rgba(218, 219, 223, 0.17255);
+  width: 50px;
+  font-family: myFirstFont; }
+
+#grad {
+  background: linear-gradient(red, blue); }
+
+#gradR {
+  background: linear-gradient(to right, red, blue); }
+
+#gradA {
+  background: linear-gradient(270deg, red, blue); }
+
+.fleft {
+  float: left; }
+
+.box {
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin-left: 10px; }
