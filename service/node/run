@@ -1,0 +1,3 @@
+#!/bin/sh
+echo starting
+exec static /home/cloud/git/blackjack/static/
