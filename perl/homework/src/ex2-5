@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+print "Please Enter a string: ";
+chomp($str = <STDIN>);
+print "Please a number: ";
+chomp($times = <STDIN>);
+$result = $str x $times;
+print "The result is $result.\n"

@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+print "Enter a directory: ";
+chomp (my $dir = <STDIN>);
+if ($dir =~ /\A\s*\Z/) {
+  chdir or die "Can't chdir to you home: $!.\n";
+} else {
+  chdir $dir or die "Can't chdir to $dir: $!.";
+}
+
+opendir DIR, "." or die "Can't opendir $!";
+foreach (sort readdir DIR) {
+  print "$_\n";
+}

@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+use File::Basename;
+use File::Spec;
+
+my($src, $dest) = @ARGV;
+
+if (-d @dest) {
+  my $basename = basename $src;
+  $dest = FIle::Spec->catfile($dest, $basename);
+}
+
+rename $src, $dest or die "Can't rename '$src' to '$dest'.\n";

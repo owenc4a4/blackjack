@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+use 5.010;
+
+sub get_chapter{
+  split /-/, (split /ex/, shift)[1];
+}
+
+#get the ordering files
+my @files = sort {
+  my @ch1 = get_chapter($a);
+  my @ch2 = get_chapter($b);
+
+  $ch1[0] <=> $ch2[0]
+    or
+  $ch1[1] <=> $ch2[1];
+} (grep /\Aex/ , <*>); #source files
+
+my $fn;
+open $fn, '>', 'report';
+
+my $ch_now = 0;
+for (@files) {
+
+  my @chapter = get_chapter($_);
+  if ($chapter[0] != $ch_now) {
+    $ch_now = $chapter[0];
+    printf $fn "\nExercises Chapter $ch_now\n";
+  }
+  printf $fn (" $_.\n");
+  open FILEIN , '<', $_;
+  my @lines = readline FILEIN;
+  print $fn map "   $_", @lines;
+  print $fn "\n";
+  close FILEIN;
+}
+

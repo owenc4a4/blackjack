@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+$what = "fred";
+while (<>) {                   # take one input line at a time
+  chomp;
+  if (/($what){3}/) {
+    print "Matched: |$`<$&>$'|\n";  # the special match vars
+  } else {
+    print "No match: |$_|\n";
+  }
+}

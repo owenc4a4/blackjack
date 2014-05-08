@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+foreach my $file (@ARGV) {
+  if (-e $file) {
+    print "$file is";
+    print " readable" if -r $file;
+    print " writable" if -w $file;
+    print " executable" if -x $file;
+    print ".\n";
+  } else {
+    print "$file does not exist.\n";
+  }
+
+}

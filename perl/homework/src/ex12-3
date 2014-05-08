@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+use 5.010;
+
+die "No file input!\n" unless @ARGV;
+
+foreach (@ARGV) {
+  print "$_ is owned by your and readable, writable.\n"
+     if -o -r -w $_;
+}

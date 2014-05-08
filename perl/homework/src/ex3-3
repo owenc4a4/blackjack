@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+print "Please enter some strings, one per line, and end with Ctrl+D.\n";
+chomp(@lines = <STDIN>);
+@sort_lines = sort @lines;
+print "Output result on one line:\n";
+print "@sort_lines\n";
+
+print "Output result on separate lines:\n";
+foreach (@sort_lines) {
+  print "$_\n";
+}

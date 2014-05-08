@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+use 5.014;
+
+my $number = int(1+rand 100);
+
+while (1) {
+  print "Please Enter a number from 1 to 100: ";
+  chomp (my $num = <STDIN>);
+  given ($num) {
+    when (! /\A\d+\Z/) {
+      say "Not a number!"}
+    when ($_ > $number) {
+      say "Too large. Try again."}
+    when ($_ < $number) {
+      say "Too small. Try again."}
+    when ($_ == $number) {
+      say "You guess!"; last
+    }
+  }
+}

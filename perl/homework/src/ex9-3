@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+my $filename_in = $ARGV[0];
+
+my $filename_out =$filename_in;
+
+$filename_out =~ s/(\.\w+)?$/.out/;
+
+if (! open $f_in, '<', $filename_in) {
+  die "'$filename_in': $!";
+}
+
+if (! open $f_out, '>', $filename_out) {
+  die "'$filename_out': $!";
+}
+
+while (<$f_in>) {
+  chomp;
+  s/Fred/\n/gi;
+  s/Wilma/Fred/gi;
+  s/\n/Wilma/g;
+  print $f_out "$_\n";
+}

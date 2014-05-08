@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+die "No file input!\n" unless @ARGV;
+my $name = shift @ARGV;
+my $oldest_age = -C $name;
+
+foreach (@ARGV) {
+  my $age = -C;
+  ($name, $oldest_age) = ($_, $age)
+      if $age > $oldest_age;
+}
+
+printf "The oldest file is %s, it is %f days old.\n",
+    $name, $oldest_age;

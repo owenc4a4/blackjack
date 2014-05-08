@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+use 5.010;
+
+while (<>) {                   # take one input line at a time
+  chomp;
+  if (/(?<word>\b\w*a\b)/) {
+    print "'word' contains '$+{word}'\n";  # the special match vars
+  } else {
+    print "No match: |$_|\n";
+  }
+}

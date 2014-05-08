@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+print "Please some lines and end with Ctrl+D\n";
+@lines = <STDIN>;
+@lines = reverse @lines;
+print "The reverse lines is:\n";
+print @lines;

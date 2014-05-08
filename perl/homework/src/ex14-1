@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+print "Enter some numbers, one per line.\n";
+
+my @numbers;
+
+while (<>) {
+  push @numbers, $_;
+}
+@numbers = sort {$a <=> $b} @numbers;
+
+foreach (@numbers) {
+  printf "%10g\n", $_;
+}

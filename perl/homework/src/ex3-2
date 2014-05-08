@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+print "Please enter some numbers, one per line, and end with Ctrl+D.\n";
+@names = qw {fred betty barney dino wilma pebbles bamm-bamm};
+chomp(@numbers = <STDIN>);
+print "The result is:\n";
+foreach (@numbers) {
+  print "$names[$_ -1]\n";
+}

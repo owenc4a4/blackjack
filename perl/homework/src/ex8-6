@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+while (<>) {                   # take one input line at a time
+  chomp;
+  if (/\s\z/) {
+    print "$_***\n";  # the special match vars
+  }
+}

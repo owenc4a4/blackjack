@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use 5.010;
+
+my $debug = $ARGV[0] // 0;
+my $number = int(1+rand 100);
+
+print "We are in debug mode, the number is $number.\n" if $debug;
+
+while (1) {
+  print "Please Enter a number from 1 to 100: ";
+  chomp ($num = <STDIN>);
+  if ($num =~ /quit|exit|\A\s*\z/i) {
+    print "Now to exit!\n";
+    last;
+  } elsif ($num < $number) {
+    print "Too small. Try again.\n";
+  } elsif ($num > $number) {
+    print "Too large. Try again.\n";
+  } else {
+    print "You guess!\n";
+    last;
+  }
+}

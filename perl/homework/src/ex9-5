@@ -1,0 +1,25 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+
+my %todo_list;
+foreach (@ARGV) {
+  $todo_list{$_} = 1;
+}
+
+while (<>) {
+  if (/\A## Copyright/) {
+    delete $todo_list{$ARGV};
+  }
+}
+
+@ARGV = sort keys %todo_list;
+
+if (@ARGV) {    #do next, if files exists.
+  $^I = ".bak";
+  while (<>) {
+    if (/\A#!/) {
+      $_ .= "## Copyright (C) 2013 by Ma\n";
+    }
+    print;
+  }
+}

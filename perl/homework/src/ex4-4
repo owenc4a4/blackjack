@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+use 5.010;
+sub greet {
+  state $last_person;
+  my $person = shift @_;
+  if ( defined $last_person) {
+    print "Hi $person! $last_person is also here!\n";
+  } else {
+    print "Hi $person! You are the first one here!\n";
+  }
+  $last_person = $person;
+}
+
+greet('Fred');
+greet('Barney');

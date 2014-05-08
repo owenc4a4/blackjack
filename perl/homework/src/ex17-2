@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+
+foreach (<*>) {
+  my ($time_acess, $time_modify) = (stat)[8,9];
+  printf "%-10s %10d %10d\n", $_, $time_acess, $time_modify;
+}

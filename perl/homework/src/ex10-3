@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+
+use 5.010;
+$ENV{ZERO} = 0;
+$ENV{EMPTY} = '';
+$ENV{UNDEFINED} = undef;
+
+my $max = 0;
+while (($key, $value) = each %ENV) {
+  my $length = length($key);
+  if ($length > $max) {
+    $max = $length;
+  }
+}
+
+while (($key, $value) = each %ENV) {
+  printf "%-${max}s  %s\n", $key, $value // "(undefined)";
+}

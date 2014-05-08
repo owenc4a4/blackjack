@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+while(<>){
+  if (/^[A-Z][A-Z]*[a-z]+[A-Za-z]*/) {
+    print;
+  }
+}

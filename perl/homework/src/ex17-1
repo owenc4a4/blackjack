@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+my $filename = './sample_text.txt';
+open my $fn , '<', $filename or die "Can't open file:$filename!\n";
+
+my @strings;
+
+while (<$fn>) {
+  chomp;
+  push @strings, $_;
+}
+
+while (1) {
+  print "Enter a pattern: ";
+  chomp (my $pattern = <STDIN>);
+  last if $pattern =~ /\A\s*\Z/;
+
+  my @result = eval {
+    grep /$pattern/, @strings;
+  };
+
+  if ($@) {
+    print "Error: $@\n";
+  } else {
+    my $count = @result;
+    print "There are $count matching strings:\n",
+      join "\n", @result;
+  }
+  print "\n";
+}

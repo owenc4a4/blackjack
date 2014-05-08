@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+use 5.014;
+
+given (`date`) {
+  when (/Mon|Tue|Wed|Thu|Fri/) {print "get to work!\n"}
+  when (/Sun|Sat/) {print "go paly!\n"}
+}

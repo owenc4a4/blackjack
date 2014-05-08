@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+## Copyright (C) 2013 by Ma
+use 5.010;
+
+sub greet {
+  state @person_list;
+  my $person = shift @_;
+
+  if (@person_list != 0) {
+    print "Hi $person! I've seen: @person_list \n";
+  } else {
+    print "Hi $person! You are the first one here!\n";
+  }
+  push @person_list, $person
+}
+
+greet("Fred");
+greet("Barney");
+greet("Wilma");
+greet("Betty");

@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use 5.010;
+
+sub my_int_handler {
+  print "Caught INT. Now exit.\n";
+  exit;
+}
+sub my_usr1_handler {
+  state $n;
+  $n++;
+  print "Caught USR1: $n\n";
+}
+print "I am $$.\n";
+
+$SIG{'INT'} = 'my_int_handler';
+$SIG{'USR1'} = 'my_usr1_handler';
+
+while (1) {};
